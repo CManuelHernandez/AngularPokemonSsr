@@ -18,7 +18,7 @@ import { SimplePokemon } from '../../interfaces';
 export class PokemonListComponent {
   public pokemons = input.required<SimplePokemon[]>();
 
-  logEffect = effect(() => {
-    console.log('PokemonCard: ', this.pokemons());
-  });
+  // logEffect = effect(() => {
+  //   console.log('PokemonCard: ', this.pokemons());
+  // });
 }
