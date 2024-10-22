@@ -10,6 +10,7 @@ import {
 import { PokemonListComponent } from '../../pokemons/components/pokemon-list/pokemon-list.component';
 import { PokemonListSkeletonComponent } from './ui/pokemon-list-skeleton/pokemon-list-skeleton.component';
 import { PokemonsService } from '../../pokemons/services/pokemons.service';
+import { SimplePokemon } from '../../pokemons/interfaces';
 
 @Component({
   selector: 'pokemons-page',
@@ -20,6 +21,8 @@ import { PokemonsService } from '../../pokemons/services/pokemons.service';
 })
 export default class PokemonsPageComponent implements OnInit {
   private pokemonsService = inject(PokemonsService);
+
+  public pokemons = signal<SimplePokemon[]>([]);
   //public isLoading = signal(true);
 
   //private appRef = inject(ApplicationRef);
@@ -37,7 +40,7 @@ export default class PokemonsPageComponent implements OnInit {
 
   public loadPokemons(page = 0) {
     this.pokemonsService.loadPage(page).subscribe((pokemons) => {
-      console.log('On Init');
+      this.pokemons.set(pokemons);
     });
   }
 

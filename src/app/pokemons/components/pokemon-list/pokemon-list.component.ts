@@ -1,6 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  input,
+} from '@angular/core';
 import { PokemonCardsComponent } from '../pokemon-cards/pokemon-cards.component';
+import { SimplePokemon } from '../../interfaces';
 
 @Component({
   selector: 'pokemon-list',
@@ -9,4 +15,10 @@ import { PokemonCardsComponent } from '../pokemon-cards/pokemon-cards.component'
   templateUrl: './pokemon-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonListComponent {}
+export class PokemonListComponent {
+  public pokemons = input.required<SimplePokemon[]>();
+
+  logEffect = effect(() => {
+    console.log('PokemonCard: ', this.pokemons());
+  });
+}

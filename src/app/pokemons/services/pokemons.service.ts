@@ -29,8 +29,7 @@ export class PokemonsService {
           );
 
           return simmplePokemons;
-        }),
-        tap((pokemons) => console.log(pokemons))
+        })
       );
   }
 }
