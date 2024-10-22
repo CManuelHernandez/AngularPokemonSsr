@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import {
+  ApplicationRef,
   ChangeDetectionStrategy,
   Component,
+  inject,
   OnInit,
   signal,
 } from '@angular/core';
@@ -16,11 +18,21 @@ import { PokemonListSkeletonComponent } from './ui/pokemon-list-skeleton/pokemon
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class PokemonsPageComponent implements OnInit {
-  // public isLoading = signal(true);
+  public isLoading = signal(true);
+
+  //private appRef = inject(ApplicationRef);
+
+  //private $appState = this.appRef.isStable.subscribe((isStable) => {
+  //  console.log({ isStable });
+  //});
 
   ngOnInit(): void {
-    //   setTimeout(() => {
-    //     this.isLoading.set(false);
-    //   }, 5000);
+    //  setTimeout(() => {
+    //    this.isLoading.set(false);
+    //  }, 5000);
   }
+
+  // ngOnDestroy(): void {
+  //   this.$appState.unsubscribe();
+  // }
 }
