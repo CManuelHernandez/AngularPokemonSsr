@@ -6,11 +6,12 @@ import {
   signal,
 } from '@angular/core';
 import { SimplePokemon } from '../../interfaces';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'pokemon-cards',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './pokemon-cards.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
